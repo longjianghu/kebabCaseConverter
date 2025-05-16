@@ -24,9 +24,5 @@
                 text="Convert to Kebab Case">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
-        <action id="ConvertToSpringBootMappingValueKebabCase" class="com.sohocn.kebabCase.SpringBootMappingValueConvertAction"
-                text="Convert to Kebab Case(SpringBoot Mapping)">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-        </action>
     </actions>
 </idea-plugin>
