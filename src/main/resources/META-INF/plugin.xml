@@ -9,13 +9,11 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <localInspection implementationClass="com.sohocn.kebabCase.SpringBootMappingInspection" enabledByDefault="true" level="WARNING" groupDisplayName="Kebab Case Converter" displayName="Spring Boot Mapping String Inspection"/>
     </extensions>
 
     <actions>
-        <action id="KebabCaseConvertAction"
-                class="com.sohocn.kebabCase.KebabCaseConvertAction"
-                text="Convert to Kebab Case"
-                description="Converts selected text to kebab-case">
+        <action id="ConvertToKebabCase" class="com.sohocn.kebabCase.ConvertToKebabCaseAction" text="Convert to Kebab Case">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
     </actions>
