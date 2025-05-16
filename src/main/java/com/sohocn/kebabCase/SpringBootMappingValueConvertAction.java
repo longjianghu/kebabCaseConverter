@@ -66,8 +66,34 @@ public class SpringBootMappingValueConvertAction extends AnAction {
 
     @Override
     public void update(AnActionEvent e) {
-        // Always enable and show the action
-        e.getPresentation().setEnabledAndVisible(true);
+        Editor editor = e.getData(CommonDataKeys.EDITOR);
+        PsiFile psiFile = e.getData(CommonDataKeys.PSI_FILE);
+
+        if (editor == null || psiFile == null || !(psiFile instanceof PsiJavaFile)) {
+            e.getPresentation().setEnabledAndVisible(false);
+            return;
+        }
+
+        final boolean[] hasMappingAnnotation = {false};
+        psiFile.accept(new JavaRecursiveElementWalkingVisitor() {
+            @Override
+            public void visitAnnotation(PsiAnnotation annotation) {
+                super.visitAnnotation(annotation);
+                String annotationName = annotation.getQualifiedName();
+                if (annotationName != null && (annotationName.endsWith(".GetMapping") ||
+                        annotationName.endsWith(".PostMapping") ||
+                        annotationName.endsWith(".PutMapping") ||
+                        annotationName.endsWith(".DeleteMapping") ||
+                        annotationName.endsWith(".PatchMapping") ||
+                        annotationName.endsWith(".RequestMapping"))) {
+                    hasMappingAnnotation[0] = true;
+                    // Stop visiting once an annotation is found
+                    stopWalking();
+                }
+            }
+        });
+
+        e.getPresentation().setEnabledAndVisible(hasMappingAnnotation[0]);
     }
 
     // Reusing the conversion logic from the original class
