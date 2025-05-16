@@ -2,19 +2,30 @@
 <idea-plugin>
     <id>com.sohocn.kebabCase</id>
     <name>Kebab Case Converter</name>
-    <vendor>sohocn</vendor>
-
+   <vendor email="215241062@qq.com">龙江湖</vendor>
+    <idea-version since-build="231" until-build="251.*"/>
+<description><![CDATA[
+<p>Right-click to convert English words to Kebab Case style (convert English to lowercase and connect with hyphens).</p>
+        <p>鼠标右键可以将英文单词转换成Kebab Case风格(英文转换成小写并使用中横线连接).</p>
+]]></description>
+    <change-notes><![CDATA[
+    <h2>1.0.0</h2>
+    <ul>
+      <li>Convert selected text to Kebab Case style.</li>
+     <li>Support one-click conversion of value and path in SpringBoot Mapping annotations.</li>
+     <li>选择文本后将文本转换成Kebab Case风格.</li>
+     <li>支持一键转换 SpringBoot Mapping 注解的 value 和 path 值.</li>
+    </ul>
+    ]]></change-notes>
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.java</depends>
-
-
     <actions>
         <action id="ConvertToKebabCase" class="com.sohocn.kebabCase.KebabCaseConvertAction"
                 text="Convert to Kebab Case">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
         <action id="ConvertToSpringBootMappingValueKebabCase" class="com.sohocn.kebabCase.SpringBootMappingValueConvertAction"
-                text="Convert SpringBoot Mapping Value to Kebab Case">
+                text="Convert to Kebab Case(SpringBoot Mapping)">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
     </actions>
