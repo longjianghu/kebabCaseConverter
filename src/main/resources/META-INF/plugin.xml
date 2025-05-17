@@ -2,13 +2,18 @@
 <idea-plugin>
     <id>com.sohocn.kebabCase</id>
     <name>Kebab Case Converter</name>
-   <vendor email="215241062@qq.com">龙江湖</vendor>
+    <vendor email="215241062@qq.com">龙江湖</vendor>
     <idea-version since-build="231" until-build="251.*"/>
-<description><![CDATA[
+    <description><![CDATA[
 <p>Right-click to convert English words to Kebab Case style (convert English to lowercase and connect with hyphens).</p>
         <p>鼠标右键可以将英文单词转换成Kebab Case风格(英文转换成小写并使用中横线连接).</p>
 ]]></description>
     <change-notes><![CDATA[
+    <h2>1.0.1</h2>
+    <ul>
+    <li>Added one-click Kebab Case conversion for value and path attributes in @FeignClient annotation.</li>
+    <li>新增对 @FeignClient 注解中 value 和 path 属性值的一键 Kebab Case 转换功能.</li>
+    </ul>
     <h2>1.0.0</h2>
     <ul>
       <li>Convert selected text to Kebab Case style.</li>
