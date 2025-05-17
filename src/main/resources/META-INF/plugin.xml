@@ -11,15 +11,15 @@
     <change-notes><![CDATA[
     <h2>1.0.1</h2>
     <ul>
-    <li>Added one-click Kebab Case conversion for value and path attributes in @FeignClient annotation.</li>
-    <li>新增对 @FeignClient 注解中 value 和 path 属性值的一键 Kebab Case 转换功能.</li>
+    <li>Added one-click conversion functionality for the @FeignClient annotation (for the value and path attribute values).</li>
+    <li>新增对@FeignClient注解一键转换功能(value和path属性值).</li>
     </ul>
     <h2>1.0.0</h2>
     <ul>
       <li>Convert selected text to Kebab Case style.</li>
-     <li>Support one-click conversion of value and path in SpringBoot Mapping annotations.</li>
+     <li>Support one-click conversion functionality for the @Mapping annotation (for the value and path attribute values).</li>
      <li>选择文本后将文本转换成Kebab Case风格.</li>
-     <li>支持一键转换 SpringBoot Mapping 注解的 value 和 path 值.</li>
+     <li>支持对Mapping注解的一键转换功能(value和path属性值).</li>
     </ul>
     ]]></change-notes>
     <depends>com.intellij.modules.platform</depends>
