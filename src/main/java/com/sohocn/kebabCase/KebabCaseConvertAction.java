@@ -1,6 +1,6 @@
 package com.sohocn.kebabCase;
 
-import java.util.stream.Stream;
+import java.util.Set;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -13,7 +13,16 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 
+/**
+ * The type Kebab case convert action.
+ *
+ * @author longjianghu
+ */
 public class KebabCaseConvertAction extends AnAction {
+    private final Set<String> MAPPINGS =
+        Set.of(".GetMapping", ".PostMapping", ".PutMapping", ".DeleteMapping", ".PatchMapping", ".RequestMapping");
+    private final Set<String> ATTRIBUTES = Set.of("value", "path");
+
     @Override
     public void actionPerformed(AnActionEvent e) {
         Editor editor = e.getData(CommonDataKeys.EDITOR);
@@ -51,10 +60,7 @@ public class KebabCaseConvertAction extends AnAction {
                             return;
                         }
 
-                        boolean noneMatch = Stream
-                            .of(".GetMapping", ".PostMapping", ".PutMapping", ".DeleteMapping", ".PatchMapping",
-                                ".RequestMapping")
-                            .noneMatch(annotationName::endsWith);
+                        boolean noneMatch = MAPPINGS.stream().noneMatch(annotationName::endsWith);
 
                         if (noneMatch) {
                             return;
@@ -65,8 +71,7 @@ public class KebabCaseConvertAction extends AnAction {
                         for (PsiNameValuePair attribute : attributes) {
                             String attributeName = attribute.getName();
 
-                            if (attributeName == null || attributeName.equals("value")
-                                || attributeName.equals("path")) {
+                            if (attributeName == null || ATTRIBUTES.contains(attributeName)) {
                                 PsiAnnotationMemberValue value = attribute.getValue();
 
                                 if (value instanceof PsiLiteralExpression literalExpression) {
