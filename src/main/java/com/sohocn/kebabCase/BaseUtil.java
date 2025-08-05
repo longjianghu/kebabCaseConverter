@@ -34,7 +34,7 @@ public class BaseUtil {
         text = text.replaceAll("-+", "-");
 
         // 6. 去除开头和结尾的 -
-        text = text.replaceAll("^-|-$", "");
+        text = text.replaceAll("^-+|-+$", "");
 
         return text;
     }
