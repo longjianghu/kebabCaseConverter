@@ -9,6 +9,11 @@
         <p>鼠标右键可以将英文单词转换成Kebab Case风格(英文转换成小写并使用中横线连接).</p>
 ]]></description>
     <change-notes><![CDATA[
+     <h2>1.0.3</h2>
+    <ul>
+    <li>fixes discovered bugs.</li>
+    <li>修复发现的BUG.</li>
+    </ul>
     <h2>1.0.2</h2>
     <ul>
     <li>Supports the latest version and fixes discovered bugs.</li>

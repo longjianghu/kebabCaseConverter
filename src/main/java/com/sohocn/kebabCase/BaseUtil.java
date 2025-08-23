@@ -1,5 +1,8 @@
 package com.sohocn.kebabCase;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * The type Base util.
  *
@@ -15,28 +18,20 @@ public class BaseUtil {
      */
     public static String convertToKebabCase(String text) {
         if (text == null || text.isEmpty()) {
-            return text;
+            return "";
         }
 
-        // 1. 替换所有空白字符（包括空格、\t、\n等）为中横线
-        text = text.replaceAll("\\s+", "-");
+        Pattern pattern = Pattern.compile("(?<=[a-z0-9])([A-Z])");
+        Matcher matcher = pattern.matcher(text);
 
-        // 2. 替换下划线 _ 为中横线
-        text = text.replace("_", "-");
+        StringBuilder sb = new StringBuilder();
 
-        // 3. 处理驼峰命名（camelCase/PascalCase）
-        text = text.replaceAll("(?<=[a-z])[A-Z]|[A-Z](?=[a-z])", "-$0");
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, "-" + matcher.group(1).toLowerCase());
+        }
 
-        // 4. 全部转小写
-        text = text.toLowerCase();
+        matcher.appendTail(sb);
 
-        // 5. 合并连续的 -
-        text = text.replaceAll("-+", "-");
-
-        // 6. 去除开头和结尾的 -
-        text = text.replaceAll("^-+|-+$", "");
-
-        return text;
+        return sb.toString().toLowerCase();
     }
-
 }
