@@ -19,11 +19,11 @@ import com.intellij.psi.*;
  * @author longjianghu
  */
 public class KebabCaseConvertAction extends AnAction {
-    private final Set<String> MAPPINGS =
+    private static final Set<String> MAPPINGS =
         Set
             .of(".GetMapping", ".PostMapping", ".PutMapping", ".DeleteMapping", ".PatchMapping", ".RequestMapping",
                 ".FeignClient");
-    private final Set<String> ATTRIBUTES = Set.of("value", "path");
+    private static final Set<String> ATTRIBUTES = Set.of("value", "path");
 
     @Override
     public void actionPerformed(AnActionEvent e) {
