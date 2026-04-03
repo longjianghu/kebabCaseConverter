@@ -8,14 +8,8 @@ import java.util.regex.Pattern;
  * @author longjianghu
  */
 public class BaseUtil {
-    /**
-     * 下划线转连字符的正则
-     */
-    private static final Pattern UNDERSCORE_PATTERN = Pattern.compile("_");
-    /**
-     * 检测是否已经是kebab-case (只包含小写字母、数字和连字符，且连字符不以连续形式出现)
-     */
     private static final Pattern KEBAB_CASE_PATTERN = Pattern.compile("^[a-z0-9]+(-[a-z0-9]+)*$");
+    private static final Pattern UNDERSCORE_PATTERN = Pattern.compile("_");
 
     /**
      * Convert to kebab case string.
